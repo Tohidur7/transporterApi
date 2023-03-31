@@ -36,9 +36,15 @@ public class Shipper {
 	@Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
 	private boolean companyApproved;
 
+	private Shipper.ShipperStatus shipperStatus ;
+
 	@Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
 	private boolean accountVerificationInProgress;
 	
 	@CreationTimestamp
 	public Timestamp timestamp;
+
+	public enum ShipperStatus {
+		VERIFIED, NOT_VERIFIED, REJECTED, IN_PROGRESS
+	}
 }

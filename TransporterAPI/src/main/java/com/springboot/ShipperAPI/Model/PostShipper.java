@@ -3,6 +3,7 @@ package com.springboot.ShipperAPI.Model;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
+import com.springboot.ShipperAPI.Entity.Shipper;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -11,9 +12,11 @@ import lombok.Data;
 public class PostShipper {
 	private String shipperName;
 	private String companyName;
+	private Shipper.ShipperStatus shipperStatus ;
 	private String shipperLocation;
 	@NotBlank(message = "Phone no. cannot be blank!")
 	@Pattern(regexp="(^[6-9]\\d{9}$)", message="Please enter a valid mobile number") 
 	private String phoneNo;
 	private String kyc;
+
 }

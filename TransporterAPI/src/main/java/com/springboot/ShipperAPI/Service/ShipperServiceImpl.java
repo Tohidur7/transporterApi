@@ -54,6 +54,7 @@ public class ShipperServiceImpl implements ShipperService {
 			response.setCompanyName(s.get().getCompanyName());
 			response.setKyc(s.get().getKyc());
 			response.setCompanyApproved(s.get().isCompanyApproved());
+			response.setShipperStatus(s.get().getShipperStatus());
 			response.setAccountVerificationInProgress(s.get().isAccountVerificationInProgress());
 			response.setMessage(CommonConstants.ACCOUNT_EXIST);
 			response.setTimestamp(s.get().getTimestamp());
@@ -94,6 +95,11 @@ public class ShipperServiceImpl implements ShipperService {
 
 		shipper.setCompanyApproved(false);
 		response.setCompanyApproved(false);
+
+		if (postshipper.getShipperStatus() != null) {
+			shipper.setShipperStatus(postshipper.getShipperStatus());
+			response.setShipperStatus(postshipper.getShipperStatus());
+		}
 
 		shipper.setAccountVerificationInProgress(false);
 		response.setAccountVerificationInProgress(false);
@@ -205,6 +211,10 @@ public class ShipperServiceImpl implements ShipperService {
 			shipper.setCompanyApproved(updateShipper.getCompanyApproved());
 		}
 
+		if (updateShipper.getShipperStatus() != null) {
+			shipper.setShipperStatus(updateShipper.getShipperStatus());
+		}
+
 		if(updateShipper.getAccountVerificationInProgress() != null) {
 			shipper.setAccountVerificationInProgress(updateShipper.getAccountVerificationInProgress());
 		}
@@ -219,6 +229,7 @@ public class ShipperServiceImpl implements ShipperService {
 		updateResponse.setShipperLocation(shipper.getShipperLocation());
 		updateResponse.setKyc(shipper.getKyc());
 		updateResponse.setCompanyApproved(shipper.isCompanyApproved());
+		updateResponse.setShipperStatus(shipper.getShipperStatus());
 		updateResponse.setAccountVerificationInProgress(shipper.isAccountVerificationInProgress());
 		updateResponse.setStatus(CommonConstants.SUCCESS);
 		updateResponse.setMessage(CommonConstants.UPDATE_SUCCESS);
