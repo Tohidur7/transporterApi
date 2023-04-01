@@ -2,10 +2,7 @@ package com.springboot.ShipperAPI.Entity;
 
 import java.sql.Timestamp;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
 
@@ -36,6 +33,7 @@ public class Shipper {
 	@Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
 	private boolean companyApproved;
 
+	@Enumerated(EnumType.STRING)
 	private Shipper.ShipperStatus shipperStatus ;
 
 	@Column(nullable = false, columnDefinition = "BOOLEAN DEFAULT FALSE")
